@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 
 .center-content {
   text-align: center;
   padding: 120px;
-  background-color: #4682B4;
+  background-color: #265682;
   border-radius: 20px;
   border: 1px solid #ccc;
 }
@@ -52,7 +52,7 @@ form input[name="destinationAccount"] {
 }
 
 
-form button {
+form button[name="Bestätigen"] {
   background-color: green;
   color: black;
   padding: 10px 20px;
@@ -61,6 +61,11 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
-  background-color: darkgreen;
+form button[name="Cancel"] {
+  background-color: #ff0000;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

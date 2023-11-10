@@ -49,4 +49,9 @@ export class TransactionComponent {
     const accountId = this.route.snapshot.paramMap.get('id');
     this.router.navigate([`/account/${accountId}`]);
   }
+
+  navigateBack() {
+    const accountId = this.route.snapshot.paramMap.get('id');
+    this.router.navigate([`/account/${accountId}`]);
+  }
 }

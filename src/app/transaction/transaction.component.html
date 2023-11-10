@@ -1,20 +1,21 @@
 <div class="center-container">
-  <div class="center-content">
-    <form>
-      <select id="selectedValueDropdown" name="selectedValue" [(ngModel)]="selectedValue">
-        <option value="">Auswählen</option>
-        <option value="Transfer">Transfer</option>
-        <option value="Einzahlen">Einzahlen</option>
-        <option value="Auszahlen">Auszahlen</option>
-      </select>
+    <div class="center-content">
+        <form>
+            <select id="selectedValueDropdown" name="selectedValue" [(ngModel)]="selectedValue">
+                <option value="">Auswählen</option>
+                <option value="Transfer">Transfer</option>
+                <option value="Einzahlen">Einzahlen</option>
+                <option value="Auszahlen">Auszahlen</option>
+            </select>
 
-      <div *ngIf="selectedValue === 'Transfer'">
-        <input type="text" name="destinationAccount" placeholder="Zielkonto" [(ngModel)]="destinationAccount">
-      </div>
+            <div *ngIf="selectedValue === 'Transfer'">
+                <input type="text" name="destinationAccount" placeholder="Zielkonto" [(ngModel)]="destinationAccount">
+            </div>
 
-      <input type="text" name="amount" placeholder="Betrag" [(ngModel)]="amount">
+            <input type="text" name="amount" placeholder="Betrag" [(ngModel)]="amount">
 
-      <button (click)="onSubmit()" type="submit">Bestätigen</button>
-    </form>
-  </div>
+            <button (click)="onSubmit()" name="Bestätigen" type="submit">Bestätigen</button>
+            <button (click)="navigateBack()" name="Cancel">Cancel</button>
+        </form>
+    </div>
 </div>

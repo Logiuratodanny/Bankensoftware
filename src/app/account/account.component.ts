@@ -23,8 +23,4 @@ export class AccountComponent implements OnInit{
     console.log(this.$account);
   }
 
-  // transactionDialog(id: number, iban: string){
-  //   onclick()
-  // }
-
 }

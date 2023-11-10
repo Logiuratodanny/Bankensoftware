@@ -1,9 +1,11 @@
 <div class="background-blue">
-  <div class="login-container">
-    <div class="customer-container" *ngFor="let customer of $customers | async" [routerLink]="['/account', customer.id]">
-      <h2>{{customer.first_name}}</h2>
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+        <div class="customer-grid">
+            <div class="customer-container" *ngFor="let customer of $customers | async"
+                 [routerLink]="['/account', customer.id]">
+                <h2>{{customer.first_name}}</h2>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-
-
