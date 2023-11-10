@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {AccountService} from "../services/account.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
+  styleUrls: ['./transaction.component.css'],
 })
 
 export class TransactionComponent {
@@ -13,7 +14,7 @@ export class TransactionComponent {
   selectedValue: string = '';
   destinationAccount: string = '';
 
-  constructor(private accountService: AccountService, private route: ActivatedRoute, private router: Router) {
+  constructor(private accountService: AccountService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) {
   }
 
   onSubmit() {
@@ -23,20 +24,23 @@ export class TransactionComponent {
       if (this.selectedValue === 'Einzahlen') {
         this.accountService.depositAccount(Number(this.route.snapshot.paramMap.get('id2')), amount)
           .subscribe(response => {
-            this.navigateToAccount();
+            this.openSnackBar('Transaction successful');
+            this.navigateToAccount(true);
           }, error => {
           });
 
       } else if (this.selectedValue === 'Auszahlen') {
         this.accountService.payoutAccount(Number(this.route.snapshot.paramMap.get('id2')), amount)
           .subscribe(response => {
-            this.navigateToAccount();
+            this.openSnackBar('Transaction successful');
+            this.navigateToAccount(true);
           }, error => {
           });
       } else if (this.selectedValue === 'Transfer') {
         this.accountService.tranferAccount(Number(this.route.snapshot.paramMap.get('id2')), amount, this.destinationAccount)
           .subscribe(response => {
-            this.navigateToAccount();
+            this.openSnackBar('Transaction successful');
+            this.navigateToAccount(true);
           }, error => {
           });
       }
@@ -45,9 +49,21 @@ export class TransactionComponent {
     }
   }
 
-  navigateToAccount() {
+  openSnackBar(message: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = 'top';
+    config.horizontalPosition = 'center';
+
+    this.snackBar.open(message, 'Close', {
+      ...config,
+      duration: 3000,
+      panelClass: 'success-snackbar',
+    });
+  }
+
+  navigateToAccount(successful: boolean) {
     const accountId = this.route.snapshot.paramMap.get('id');
-    this.router.navigate([`/account/${accountId}`]);
+    this.router.navigate([`/account/${accountId}`], { queryParams: { success: successful } });
   }
 
   navigateBack() {

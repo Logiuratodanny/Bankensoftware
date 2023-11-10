@@ -1,15 +1,15 @@
 <div *ngIf="$customer | async as customer">
-  <div class="Sets-container" *ngFor="let account of $account | async"
-       [routerLink]="['/account', customer.id ,'transaction', account.id]">
-    <div class="AccountInfo">
-      <p>Kontostand: {{account.balance}}</p>
+    <div class="Sets-container" *ngFor="let account of $account | async"
+         [routerLink]="['/account', customer.id ,'transaction', account.id]">
+        <div class="AccountInfo">
+            <p>Kontostand: {{account.balance}}</p>
+        </div>
+        <div class="CustomerInfo">
+            <p>{{account.iban}}</p>
+            <p>{{customer.first_name}}  {{customer.lastname}}</p>
+            <p>{{customer.street}}</p>
+            <p>{{customer.zipcode}} {{customer.city}}</p>
+        </div>
     </div>
-    <div class="CustomerInfo">
-      <p>{{account.iban}}</p>
-      <p>{{customer.first_name}}  {{customer.lastname}}</p>
-      <p>{{customer.street}}</p>
-      <p>{{customer.zipcode}} {{customer.city}}</p>
-    </div>
-  </div>
 </div>
 

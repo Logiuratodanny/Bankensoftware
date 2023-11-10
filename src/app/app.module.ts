@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import {AccountService} from "./services/account.service";
 import { TransactionComponent } from './transaction/transaction.component';
 import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -25,7 +27,9 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [AccountService],
   bootstrap: [AppComponent]
