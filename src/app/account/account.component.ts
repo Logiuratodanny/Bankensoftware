@@ -10,27 +10,11 @@ import {CustomerService} from "../services/customer.service";
     templateUrl: './account.component.html',
     styleUrls: ['./account.component.css']
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent {
 
     $account: Observable<Account[]> = this.accountService.loadAccount(Number(this.route.snapshot.paramMap.get('id')));
     $customer = this.customerService.loadByID(Number(this.route.snapshot.paramMap.get('id')));
 
-    successMessage: string = '';
-
     constructor(private accountService: AccountService, private route: ActivatedRoute, private customerService: CustomerService) {
-    }
-
-    ngOnInit() {
-        this.route.queryParams.subscribe(params => {
-            this.successMessage = 'Transaction successful!';
-            this.setTimer();
-        });
-    }
-
-    setTimer() {
-        // Set a timer to clear the success message after 10 seconds
-        setTimeout(() => {
-            this.successMessage = '';
-        }, 2000);
     }
 }

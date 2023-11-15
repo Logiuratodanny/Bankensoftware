@@ -6,11 +6,10 @@ import {CustomerService} from "../services/customer.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   $customers = this.customerService.loadAll();
 
-  constructor(private customerService: CustomerService) {}
-
-  ngOnInit(): void {}
+  constructor(private customerService: CustomerService) {
+  }
 }

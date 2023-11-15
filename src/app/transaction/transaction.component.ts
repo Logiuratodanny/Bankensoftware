@@ -52,7 +52,7 @@ export class TransactionComponent {
   openSnackBar(message: string) {
     const config = new MatSnackBarConfig();
     config.verticalPosition = 'top';
-    config.horizontalPosition = 'center';
+    config.horizontalPosition = 'right';
 
     this.snackBar.open(message, 'Close', {
       ...config,
