@@ -20,7 +20,7 @@ export class TransactionComponent {
   onSubmit() {
     const amount = parseFloat(this.amount);
 
-    if (!isNaN(amount)) {
+    if (!isNaN(amount) && amount > 0) {
       if (this.selectedValue === 'Einzahlen') {
         this.accountService.depositAccount(Number(this.route.snapshot.paramMap.get('id2')), amount)
           .subscribe(response => {

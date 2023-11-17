@@ -12,7 +12,7 @@
                 <input type="text" name="destinationAccount" placeholder="Zielkonto" [(ngModel)]="destinationAccount">
             </div>
 
-            <input type="text" name="amount" placeholder="Betrag" [(ngModel)]="amount">
+            <input type="number" name="amount" placeholder="Betrag" [(ngModel)]="amount">
 
             <button (click)="onSubmit()" name="Bestätigen" type="submit">Bestätigen</button>
             <button (click)="navigateBack()" name="Cancel">Cancel</button>
